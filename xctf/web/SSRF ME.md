@@ -56,10 +56,10 @@ if (isset($_POST['url']) && isset($_POST['captcha']) && !empty($_POST['url']) &&
 ~~~
 阅读源码，发现确实对flag进行了过滤 preg_match('/flag|proc|log/i', $url) ，那么就需要对preg_match函数进行绕过。
 同时因为/i 表明不区分大小写，因此无法通过大小写绕过。试试URL编码，file:///%66%6c%61%67
-'''
+~~~
 url=file:///%66%6c%61%67&captcha=*****
-'''
+~~~
 一次不行进行二次编码：
-'''
+~~~
 url=file:///%25%36%36%25%36%63%25%36%31%25%36%37&captcha=*****
-'''
+~~~
