@@ -1,5 +1,6 @@
+### write up 
 Captcha的地方写着代码：substr(md5(captcha), -6, 6) == "974961"，很明显验证码的md5值的后六位要等于指定的数字。
-    '''
+    '''json
           <?php
 for ($i=0; $i < 1000000000; $i++) {
     $a = substr(md5($i), -6, 6);
