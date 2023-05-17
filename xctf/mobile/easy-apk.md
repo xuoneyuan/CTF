@@ -1,4 +1,4 @@
-main函数：
+~~~
 package com.testjava.jack.pingan1;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
-
+~~~
 chatgpt解释：
 这是一个用于Android应用程序的Java代码。
 该代码定义了一个类MainActivity，它扩展了AppCompatActivity类，这是Android支持库的一部分，用于向后兼容。onCreate方法是一个重写的方法，当活动被创建时被调用。
@@ -42,7 +42,7 @@ setContentView方法使用activity_main布局文件设置活动的布局。
 
 Base64New:
 package com.testjava.jack.pingan1;
-
+~~~
 /* loaded from: classes.dex */
 public class Base64New {
     private static final int RANGE = 255;
@@ -75,16 +75,18 @@ public class Base64New {
         return res.toString();
     }
 }
+~~~
 更改了base64解密方式
 
 payload：
+~~~
 import base64
 now = ['v', 'w', 'x', 'r', 's', 't', 'u', 'o', 'p', 'q', '3', '4', '5', '6', '7', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'y', 'z', '0', '1', '2', 'P', 'Q', 'R', 'S', 'T', 'K', 'L', 'M', 'N', 'O', 'Z', 'a', 'b', 'c', 'd', 'U', 'V', 'W', 'X', 'Y', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', '8', '9', '+', '/']
 now = "".join(now)
 original = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 str1 = '5rFf7E2K6rqN7Hpiyush7E6S5fJg6rsi5NBf6NGT5rs='
 print("flag{"+base64.b64decode(str1.translate(str.maketrans(now, original)).encode('utf-8')).decode('utf-8')+"}")
-
+~~~
 chatgpt解释：
 该代码使用Python中的base64库进行编码和解码操作。
 首先，代码定义了一个列表now，其中包含一些字符。然后，将这些字符拼接成一个字符串now。接下来，定义一个字符串original，它包含所有Base64编码字符。
