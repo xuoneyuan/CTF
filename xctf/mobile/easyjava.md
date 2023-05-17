@@ -1,4 +1,4 @@
-主函数：
+~~~
 package com.a.easyjava;
 
 import android.os.Bundle;
@@ -58,7 +58,7 @@ public class MainActivity extends c {
         });
     }
 }
-
+~~~
 chatgpt解释：
 这段代码是一个Android应用程序的主Activity类，它继承了AppCompatActivity类。该应用程序包含一个简单的UI，用户可以在文本框中输入字符串并按下按钮。如果输入的字符串是特定格式的标志，则会弹出“你是对的！”的提示，否则会弹出“你是错的！拜拜~”的提示，然后应用程序会在2秒钟后退出。
 具体而言，该应用程序的主Activity类名为MainActivity。 它包含一个名为b的静态方法，该方法接受一个字符串参数并返回一个布尔值。 
@@ -67,6 +67,7 @@ chatgpt解释：
 当按钮被点击时，它会调用b方法来检查用户输入的字符串是否是标志。 如果是，它会弹出“你是对的！”的提示，否则它会弹出“你是错的！拜拜~”的提示，并在2秒后退出应用程序。
 
 a
+~~~
 package com.a.easyjava;
 
 import java.util.ArrayList;
@@ -113,6 +114,7 @@ public class a {
         return b.charAt(num2.intValue());
     }
 }
+~~~
 chatgpt代码解释：
 这段代码定义了一个名为 a 的公共类（public class），该类包含以下几个元素：
 
@@ -124,7 +126,7 @@ public a(Integer num)：一个名为 a 的构造函数，其参数为一个 Inte
 public static void a()：一个名为 a 的静态方法，不接受任何参数。在程序中，这个方法被用来对偏移量 d 进行更新，并在 d 的值等于 25 时触发一次循环移位操作。
 public char a(Integer num)：一个名为 a 的实例方法，其参数为一个 Integer 类型的值 num。在程序中，这个方法被用来将一个整数转换为字母表中对应的字母，并根据当前的偏移量进行相应的移位操作。
 
-
+~~~
 b
 package com.a.easyjava;
 
@@ -176,7 +178,7 @@ public class b {
         return d;
     }
 }
-chatgpt解释代码：
+~~~
 这段代码定义了一个Java类 b，其中包含以下几个成员：
 
 a: 类型为 ArrayList<Integer> 的静态成员变量，用于存储一个整数列表；
@@ -191,6 +193,7 @@ b(): 类型为函数，返回静态变量 d 的值。
 
 
 反向推导脚本：
+~~~
 # b构造方法
 tb = [8, 25, 17, 23, 7, 22, 1, 16, 6, 9, 21, 0, 15, 5, 10, 18, 2, 24, 4, 11, 3, 14, 19, 12, 20, 13]
 lb = []
@@ -242,7 +245,8 @@ def dec(s):
 
 for s in sec:
     dec(s)
-解释说明：
+~~~
+
 这段代码是一个Python脚本，它实现了一种加密和解密方式。这种加密方式是通过将原文中的每个小写字母映射到另一个小写字母来完成的。下面是这个脚本的基本工作流程：
 
 首先，脚本定义了两个数组tb和ta，分别表示两个不同的映射表。
