@@ -1,4 +1,5 @@
 首先审计看关键代码
+~~~
 public String auth(@RequestParam String username, @RequestParam String password, HttpServletRequest request){
     String message="社工库未查询到泄露记录，你的账号是安全的。";
 
@@ -23,8 +24,9 @@ public String auth(@RequestParam String username, @RequestParam String password,
     insertQueryLog(username,password);
     return message;
 }
-
+~~~
 跟进看过滤
+~~~
 public static boolean sql_check(String sql){
 
     sql = sql.toLowerCase(Locale.ROOT);
@@ -43,7 +45,7 @@ public static boolean sql_check(String sql){
     }
     return false;
 }
-
+~~~
 虽然过滤的单引号，直接转义绕过，继续看配置文件config.properties
 url=jdbc:mysql://127.0.0.1:3306/app?characterEncoding=utf-8&useSSL=false&&autoReconnect=true&allowMultiQueries=true&serverTimezone=UTC
 db_username=root
@@ -51,6 +53,7 @@ db_password=root
 
 明显开启了堆叠，而且没过滤分号，直接堆叠可以注入，但是其他的无法绕过
 继续看代码，跟进 insertQueryLog(username,password);
+~~~
 private int insertQueryLog(String username,String password){
     String sql = "insert into app_query_log(username,password) values(?,?);";
     Connection connection = DbUtil.getConnection();
@@ -71,8 +74,9 @@ private int insertQueryLog(String username,String password){
 
     return count;
 }
-
+~~~
 跟进LogUtil.save方法
+~~~
 public class LogUtil {
     public LogUtil() {
     }
@@ -81,8 +85,9 @@ public class LogUtil {
         FileUtil.SaveFileAs(username, password);
     }
 }
-
+~~~
 继续跟进FiltUtil.SaveFileAs方法
+~~~
 public static boolean SaveFileAs(String content, String path) {
     FileWriter fw = null;
 
@@ -111,7 +116,7 @@ public static boolean SaveFileAs(String content, String path) {
 
     return var4;
 }
-
+~~~
 那么思路就清晰起来了，只要报异常，就能以username为内容，password为文件名来实现任意文件写
 但是过滤了(就很伤，没有办法调用方法
 所以到这里时，需要解决两个问题：
