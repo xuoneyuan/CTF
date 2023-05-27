@@ -3,19 +3,22 @@ WebLogic是美国Oracle公司出品的一个application server，确切的说是
 
 ## 已收集漏洞
 
--Weblogic 反序列化漏洞 CVE-2021-2394
--Weblogic LDAP 远程代码执行漏洞 CVE-2021-2109
--Weblogic RCE CVE-2020-14882&14883
--weblogic jndi注入CVE-2020-14841
--Weblogic coherence组件iiop反序列化漏洞 (CVE-2020-14644)
--WebLogic UniversalExtractor反序列化漏洞 CVE-2020-14645
--WebLogic CVE-2020-14756 T3IIOP反序列化RCE
--Weblogic 远程代码执行漏洞 CVE-2020-2883
--Weblogic CVE-2020-2551 IIOP协议反序列化rce
--Weblogic反序列化漏洞 CVE-2019-2890
--Weblogic反序列化远程代码执行漏洞CVE-2019-2725
--Weblogic反序列化漏洞 CVE-2019-2729
--Weblogic任意文件读取漏洞（CVE-2019-2615)）
+Weblogic 反序列化漏洞 CVE-2021-2394
+
+Weblogic LDAP 远程代码执行漏洞 CVE-2021-2109
+
+Weblogic RCE CVE-2020-14882&14883
+
+weblogic jndi注入CVE-2020-14841
+Weblogic coherence组件iiop反序列化漏洞 (CVE-2020-14644)
+WebLogic UniversalExtractor反序列化漏洞 CVE-2020-14645
+WebLogic CVE-2020-14756 T3IIOP反序列化RCE
+Weblogic 远程代码执行漏洞 CVE-2020-2883
+Weblogic CVE-2020-2551 IIOP协议反序列化rce
+Weblogic反序列化漏洞 CVE-2019-2890
+Weblogic反序列化远程代码执行漏洞CVE-2019-2725
+Weblogic反序列化漏洞 CVE-2019-2729
+Weblogic任意文件读取漏洞（CVE-2019-2615)）
 Weblogic 文件上传漏洞（CVE-2019-2618）
 weblogic 反序列化漏洞 CVE-2018-3252
 Weblogic反序列化远程代码执行漏洞 CVE-2018-3245
