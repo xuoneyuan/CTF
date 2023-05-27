@@ -1,7 +1,8 @@
 ## WebLogic
 WebLogic是美国Oracle公司出品的一个application server，确切的说是一个基于JAVAEE架构的中间件，WebLogic是用于开发、集成、部署和管理大型分布式Web应用、网络应用和数据库应用的Java应用服务器。将Java的动态功能和Java Enterprise标准的安全性引入大型网络应用的开发、集成、部署和管理之中。
 
-已收集漏洞
+# 已收集漏洞
+
 Weblogic 反序列化漏洞 CVE-2021-2394
 Weblogic LDAP 远程代码执行漏洞 CVE-2021-2109
 Weblogic RCE CVE-2020-14882&14883
@@ -27,7 +28,8 @@ Weblogic 反序列化漏洞 CVE-2017-3506
 Weblogic 反序列化漏洞 CVE-2017-3248
 Weblogic SSRF漏洞 CVE-2014-4210
 
-常用弱口令
+# 常用弱口令
+
 weblogic Oracl@123
 weblogic weblogic
 guest guest
