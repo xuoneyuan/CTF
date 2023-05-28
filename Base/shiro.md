@@ -20,3 +20,20 @@
 - 测试：存在测试支持，可帮助您编写单元测试和集成测试，并确保代码按预期得到保障。
 - “运行方式”：允许用户承担另一个用户的身份(如果允许)的功能，有时在管理方案中很有用。
 - “记住我”：记住用户在会话中的身份，所以用户只需要强制登录即可。
+
+
+### 相关CVE
+| 漏洞编号           | Shiro版本                  | 配置                    | 漏洞形式                |
+|-------------------|----------------------------|-------------------------|-------------------------|
+| CVE-2010-3863     | shiro < 1.1.0 和JSecurity 0.9.x | /** = anon          | /./remoting.jsp         |
+| CVE-2014-0074/SHIRO-460 | shiro 1.x < 1.2.3     | -                       | ldap、空密码、空用户名、匿名 |
+| CVE-2016-4437/SHIRO-550 | shiro 1.x < 1.2.5     | -                       | RememberMe、硬编码          |
+| CVE-2016-6802     | shiro < 1.3.2              | Context Path绕过           | /x/../context/xxx.jsp  |
+| CVE-2019-12422/SHIRO-721 | shiro < 1.4.2        | -                       | RememberMe、Padding Oracle Attack、CBC |
+| CVE-2020-1957/SHIRO-682 | shiro < 1.5.2        | /** = anon             | /toJsonPOJO/、Spring Boot < 2.3.0.RELEASE -> /xx/..;/toJsonPOJO |
+| CVE-2020-11989/SHIRO-782 | shiro < 1.5.3        | (等于1.5.2）/toJsonList/* = authc；(小于1.5.3）/alter/* = authc && /** = anon | (等于1.5.2）/的两次编码 -> %25%32%66 /toJsonList/a%25%32%66a ->/toJsonList/a%2fa；（小于1.5.3）/;/shirodemo/alter/test -> /shirodemo/alter/test (Shiro < 1.5.2版本的话，根路径是什么没有关系) |
+| CVE-2020-13933     | shiro < 1.6.0              | /hello/* = authc          | /hello/%3ba             |
+| CVE-2020-17510    | shiro < 1.7.0              | /hello/* = authc          | /hello/%2e              |
+| CVE-2020-17523    | shiro < 1.7.1              | /hello/* = authc          | /hello/%20              |
+| CVE-2021-41303    | shiro < 1.8.0              | /admin/* = authc && /admin/page = anon | /admin/page/         |
+| CVE-2022-32532    | shiro < 1.9.1              | RegExPatternMatcher && /alter/.* |                        |
