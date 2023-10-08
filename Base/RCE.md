@@ -24,8 +24,8 @@ shell_exec()\
 popen()\
 proc_open()\
 pcntl_exec()\
-windows系统命令拼接方式
 
+windows系统命令拼接方式\
 “|”:管道符，前面命令标准输出，后面命令的标准输入。例如：help |more\
 “&” commandA & commandB 先运行命令A，然后运行命令B\
 “||” commandA || commandB 运行命令A，如果失败则运行命令B\
